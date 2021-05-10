@@ -7,12 +7,14 @@ const AllNotes = () => {
   const notes = useSelector((state) => state.noteReducer.notes);
 
   return (
-    <div className="m-3">
+    <div className="mt-3 mb-3">
       <h3>All Notes</h3>
-      <div className="row">
-        {notes.map((note) => (
-          <Note key={note.id} note={note} />
-        ))}
+      <div>
+        {notes
+          .filter((note) => !note.isImportant)
+          .map((note) => (
+            <Note key={note.id} note={note} />
+          ))}
       </div>
     </div>
   );

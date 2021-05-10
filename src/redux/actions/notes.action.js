@@ -1,4 +1,4 @@
-import { ADD_NOTE, GET_NOTES, SET_LOADER } from "../type";
+import { ADD_NOTE, GET_NOTES, SET_LOADER, DELETE_NOTE } from "../type";
 import { firestore } from "../../firebase";
 
 export const addNewNote = (note) => async (dispatch) => {
@@ -37,6 +37,21 @@ export const getNotes = () => async (dispatch) => {
     dispatch({
       type: GET_NOTES,
       payload: allNotes,
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const deleteNote = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: SET_LOADER });
+
+    await firestore.collection("notes").doc(id.toString()).delete();
+
+    dispatch({
+      type: DELETE_NOTE,
+      payload: id,
     });
   } catch (error) {
     console.error(error);

@@ -22,7 +22,7 @@ const CreateNote = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div className="form-group mt-3">
           <textarea
             cols="3"
             className="form-control"
@@ -30,7 +30,7 @@ const CreateNote = () => {
             value={note}
             onChange={(e) => setNote(e.target.value)}
           ></textarea>
-          <button className="btn" type="submit">
+          <button className="btn btn-primary mt-3 mb-3" type="submit">
             Add Note
           </button>
         </div>

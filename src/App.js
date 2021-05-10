@@ -18,9 +18,9 @@ const App = () => {
   console.log("Store: ", store.getState());
 
   return (
-    <div className="container mt-3 p-3">
+    <div className="container">
+      <h1 className="text-center m-3">Notebook App with Redux Hooks</h1>
       <CreateNote />
-      <hr />
       {loading ? (
         <div className="spinner-border m-3"></div>
       ) : (

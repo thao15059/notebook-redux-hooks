@@ -6,9 +6,9 @@ const ImportantNotes = () => {
   const notes = useSelector((state) => state.noteReducer.notes);
 
   return (
-    <div className="importantNotes m-3">
+    <div className="importantNotes mt-3 mb-3">
       <h3>All Important Notes</h3>
-      <div className="row">
+      <div>
         {notes
           .filter((note) => note.isImportant === true)
           .map((note) => (
